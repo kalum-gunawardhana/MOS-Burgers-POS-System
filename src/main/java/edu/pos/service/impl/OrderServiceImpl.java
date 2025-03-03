@@ -34,11 +34,11 @@ public class OrderServiceImpl implements OrderService {
 
         List<OrderItemEntity> orderItemEntities = order.getOrderItems().stream().map(item -> {
             OrderItemEntity orderItemEntity = new OrderItemEntity();
-            orderItemEntity.setOrder(savedOrder); // Link order entity
-            orderItemEntity.setItemId(item.getItemId()); // Use getItemId() instead of getOrderId()
+            orderItemEntity.setOrder(savedOrder);
+            orderItemEntity.setItemCode(item.getItemCode());
             orderItemEntity.setQuantity(item.getQuantity());
-            orderItemEntity.setUnitPrice(item.getUnitPrice());
-            orderItemEntity.setTotalPrice(item.getQuantity() * item.getUnitPrice()); // Calculate total price
+            orderItemEntity.setPrice(item.getPrice());
+            orderItemEntity.setTotal(item.getQuantity() * item.getPrice());
             return orderItemEntity;
         }).collect(Collectors.toList());
 

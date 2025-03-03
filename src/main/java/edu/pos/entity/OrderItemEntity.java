@@ -19,15 +19,15 @@ public class OrderItemEntity {
     @JoinColumn(name = "order_id", nullable = false)
     private OrderEntity order;
 
-    @Column(name = "item_id", nullable = false)
-    private Integer itemId;
+    @Column(name = "itemCode", nullable = false)
+    private Integer itemCode;
 
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
-    @Column(name = "unit_price", nullable = false)
-    private Double unitPrice;
+    @Column(name = "price", nullable = false)
+    private Double price;
 
-    @Column(name = "total_price", insertable = false, updatable = false)
-    private Double totalPrice;
+    @Column(name = "total", insertable = false, updatable = false)
+    private Double total;
 }
