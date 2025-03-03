@@ -11,17 +11,14 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @CrossOrigin
 public class UserController {
-
     final UserService userService;
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody User user){
         boolean logined = userService.login(user);
-
         if (logined){
             return ResponseEntity.ok("login successful!");
         }
-
         return ResponseEntity.ok("login fail!");
     }
 }

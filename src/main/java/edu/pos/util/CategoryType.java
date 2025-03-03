@@ -1,6 +1,6 @@
 package edu.pos.util;
 
-public enum Category {
+public enum CategoryType {
     Burgers,
     Submarines,
     Fries,

@@ -1,8 +1,6 @@
 package edu.pos.controller;
 
 import edu.pos.dto.Customer;
-import edu.pos.entity.CustomerEntity;
-import edu.pos.repository.CustomerDao;
 import edu.pos.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -45,19 +43,16 @@ public class CustomerController {
         }
     }
 
-    // Delete a customer
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteCustomer(@PathVariable Integer id) {
         customerService.deleteCustomer(id);
         return ResponseEntity.noContent().build();
     }
 
-    // Get a single customer by ID
     @GetMapping("/{id}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable Integer id) {
         Optional<Customer> customer = customerService.getCustomerById(id);
         return customer.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
-    
 }
